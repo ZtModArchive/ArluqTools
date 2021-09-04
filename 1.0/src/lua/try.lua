@@ -6,7 +6,11 @@ function try(func)
     -- Catch
     if not status then
         -- Show exception in the message panel in-game
-        displayZooMessageTextWithZoom("Exception: "..exception, 1, 30)
+        local increment =  50
+        for i = 0, string.len(exception), increment
+        do 
+            displayZooMessageTextWithZoom(string.sub(exception, i, i+increment-1), 1, 30)
+        end
     end
 end
 

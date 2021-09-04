@@ -1,7 +1,7 @@
 package = "ArluqTools"
 version = "1.0-1"
 source = {
-    url = "git+ssh://git@github.com/ZtModArchive/ArluqTools.git"
+    url = "git+https://git@github.com/ZtModArchive/ArluqTools.git"
 }
 description = {
     summary = "Abstraction layer for Zoo Tycoon 2's Lua libraries",

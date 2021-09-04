@@ -13,6 +13,13 @@ function AnimalService.delete (animal)
     deleteEntity(animal)
 end
 
+--- Get animal age, returns true if adult, false if young
+--- @param animal animal
+--- @return bool
+function AnimalService.getAge (animal)
+    return animal:BFG_GET_ATTR_BOOLEAN("b_Adult")
+end
+
 --- Get animal age as sting
 --- @param animal animal
 --- @return string
@@ -22,6 +29,13 @@ function AnimalService.getAgeString (animal)
         return "Adult"
     end
     return "Young"
+end
+
+--- Get animal gender, returns true if male, false if female
+--- @param animal animal
+--- @return bool
+function AnimalService.getGender (animal)
+    return animal:BFG_GET_ATTR_BOOLEAN("b_Male")
 end
 
 --- Get animal gender as sting
@@ -35,6 +49,27 @@ function AnimalService.getGenderString (animal)
     return "F"
 end
 
+--- Get animal rampage status
+--- @param animal animal
+--- @return bool
+function AnimalService.getRampage (animal)
+    return animal:BFG_GET_ATTR_BOOLEAN("b_Rampage")
+end
+
+--- Get animal rest status
+--- @param animal animal
+--- @return float
+function AnimalService.getRest (animal)
+    return animal:BFG_GET_ATTR_FLOAT("b_Rest")
+end
+
+--- Get animal species
+--- @param animal animal
+--- @return string
+function AnimalService.getSpecies (animal)
+    return animal:BFG_GET_ATTR_STRING("s_Species")
+end
+
 --- Get animal super status as sting
 --- @param animal animal
 --- @return string
@@ -44,6 +79,13 @@ function AnimalService.getSuperString (animal)
         return "_Super"
     end
     return ""
+end
+
+--- Get animal thirst
+--- @param animal animal
+--- @return float
+function AnimalService.getThirst (animal)
+    return animal:BFG_GET_ATTR_FLOAT("b_Thirst")
 end
 
 --- Set whether or not an animal can be put up for adoption
@@ -77,35 +119,28 @@ end
 
 --- Set animal enviroment suitability
 --- @param animal animal
---- @param enviroment int
+--- @param enviroment float
 function AnimalService.setEnviroment (animal, enviroment)
     setNeed(animal, "enviroment", enviroment)
 end
 
 --- Set animal exercise stat
 --- @param animal animal
---- @param exercise int
+--- @param exercise float
 function AnimalService.setExercise (animal, exercise)
     setNeed(animal, "exercise", exercise)
 end
 
---- Set animal happiness
---- @param animal animal
---- @param happiness int
-function AnimalService.setHappiness (animal, happiness)
-    setNeed(animal, "happiness", happiness)
-end
-
 --- Set animal hunger
 --- @param animal animal
---- @param hunger int
+--- @param hunger float
 function AnimalService.setHunger (animal, hunger)
     setNeed(animal, "hunger", hunger)
 end
 
 --- Set animal hygiene
 --- @param animal animal
---- @param hygiene int
+--- @param hygiene float
 function AnimalService.setHygiene (animal, hygiene)
     setNeed(animal, "hygiene", hygiene)
 end
@@ -141,17 +176,9 @@ end
 
 --- Set animal privacy
 --- @param animal animal
---- @param privacy int
+--- @param privacy float
 function AnimalService.setPrivacy (animal, privacy)
     setNeed(animal, "privacy", privacy)
-end
-
---- Set animal rampage status
---- @param animal animal
---- @param isRampaging bool
-function AnimalService.setRampage (animal, isRampaging)
-    local rampageManager = queryObject("BFGRampageMgr")
-    rampageManager:BFG_FORCE_RAMPAGE(animal)
 end
 
 --- Set whether or not an animal can be released to the wild
@@ -163,21 +190,21 @@ end
 
 --- Set animal rest
 --- @param animal animal
---- @param rest int
+--- @param rest float
 function AnimalService.setRest (animal, rest)
     setNeed(animal, "rest", rest)
 end
 
 --- Set animal social stat
 --- @param animal animal
---- @param social int
+--- @param social float
 function AnimalService.setSocial (animal, social)
     setNeed(animal, "social", social)
 end
 
 --- Set animal stimulation stat
 --- @param animal animal
---- @param stimulation int
+--- @param stimulation float
 function AnimalService.setStimulation (animal, stimulation)
     setNeed(animal, "stimulation", stimulation)
 end
@@ -210,7 +237,14 @@ end
 
 --- Set animal thirst
 --- @param animal animal
---- @param thirst int
+--- @param thirst float
 function AnimalService.setThirst (animal, thirst)
     setNeed(animal, "thirst", thirst)
+end
+
+--- Trigger a rampage
+--- @param animal animal
+function AnimalService.triggerRampage (animal)
+    local rampageManager = queryObject("BFGRampageMgr")
+    rampageManager:BFG_FORCE_RAMPAGE(animal)
 end

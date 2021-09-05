@@ -65,7 +65,7 @@ end
 
 --- Set animal bathroom stat
 --- @param animal animal
---- @param exercise float
+--- @param bathroom float
 function AnimalService.setBathroom (animal, bathroom)
     setNeed(animal, "bathroom", bathroom)
 end
@@ -165,8 +165,8 @@ end
 
 --- Set animal health
 --- @param animal animal
---- @param exercise float
-function AnimalService.setExercise (animal, health)
+--- @param health float
+function AnimalService.setHealth (animal, health)
     setNeed(animal, "health", health)
 end
 

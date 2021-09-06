@@ -202,6 +202,22 @@ function AnimalService.setHygiene (animal, hygiene)
     setNeed(animal, "hygiene", hygiene)
 end
 
+---- LIFESPAN ----
+
+--- Get animal lifespan
+--- @param animal animal
+--- @return float
+function AnimalService.getLifespan (animal)
+    return animal:BFG_GET_ATTR_FLOAT("lifespan")
+end
+
+--- Set animal lifespan
+--- @param animal animal
+--- @param lifespan float
+function AnimalService.setLifespan (animal, lifespan)
+    setNeed(animal, "lifespan", lifespan)
+end
+
 ---- PREGNANCY ----
 
 --- Get if animal is pregnant

@@ -1,10 +1,16 @@
+--- @todo
+-- suppressing rampage
+-- get/set variations
+-- get/set skin variations
+-- get/set deletable
+
 -- Include Zoo Tycoon 2 libraries
 include "scenario/scripts/entity.lua"
 include "scenario/scripts/misc.lua"
 include "scenario/scripts/token.lua"
 include "scenario/scripts/ui.lua"
 
---- Service for modifiying animals.
+--- Service for modifiying animals
 AnimalService = {}
 
 ---- ADOPTION ----
@@ -202,6 +208,22 @@ function AnimalService.setHygiene (animal, hygiene)
     setNeed(animal, "hygiene", hygiene)
 end
 
+---- NAME ----
+
+--- Get animal name
+--- @param animal animal
+--- @return string
+function AnimalService.getName (animal)
+    return animal:BFG_GET_ATTR_STRING("s_name")
+end
+
+--- Set animal name
+--- @param animal animal
+--- @param name string
+function AnimalService.setName (animal, name)
+    animal:BFG_SET_ATTR_STRING("s_name", name)
+end
+
 ---- PREGNANCY ----
 
 --- Get if animal is pregnant
@@ -313,8 +335,15 @@ end
 
 --- Get animal species
 --- @param animal animal
---- @return string
+--- @return species
 function AnimalService.getSpecies (animal)
+    return getSpeciesFromType(animal:BFG_GET_BINDER_TYPE())
+end
+
+--- Get animal species as string
+--- @param animal animal
+--- @return string
+function AnimalService.getSpeciesString (animal)
     return animal:BFG_GET_ATTR_STRING("s_Species")
 end
 

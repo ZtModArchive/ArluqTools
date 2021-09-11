@@ -17,7 +17,7 @@ function CollectionService.getAllAnimals()
     return list
 end
 
---- Get all fences in the zoo
+--- Get all fences in the zoo (unsafe)
 --- @return list
 function CollectionService.getAllFences()
     local list = findType("fence")

@@ -1,0 +1,28 @@
+{
+  "ArchiveName": "ArluqTools",
+  "Z2f": true,
+  "IncludeFolders": [
+    "ai",
+    "awards",
+    "biomes",
+    "config",
+    "effects",
+    "entities",
+    "lang",
+    "locations",
+    "maps",
+    "materials",
+    "photochall",
+    "puzzles",
+    "scenario",
+    "scripts",
+    "shared",
+    "tourdata",
+    "ui",
+    "world",
+    "xpinfo"
+  ],
+  "ExcludeFolders": [
+    "scripts/ArluqTools"
+  ]
+}

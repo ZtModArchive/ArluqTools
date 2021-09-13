@@ -44,9 +44,9 @@ end
 function AnimalService.getAgeString (animal)
     local isAdult = animal:BFG_GET_ATTR_BOOLEAN("b_Adult")
     if isAdult then
-        return "Adult"
+        return "_Adult"
     end
-    return "Young"
+    return "_Young"
 end
 
 --- Set animal age
@@ -56,8 +56,47 @@ function AnimalService.setAge (animal, age)
     local species = animal:BFG_GET_ATTR_STRING("s_Species")
     local gender = AnimalService.getGenderString(animal)
     local super = AnimalService.getSuperString(animal)
+    local old = ""
+    if (age == "_Adult") then
+        old = AnimalService.getOldString(animal)
+    end
 
-    animal:BFG_ENTITY_MORPH_TO_NEW_ENTITY(species .. "_" .. age .. "_" .. gender .. super, false, 0, false, 1)
+    animal:BFG_ENTITY_MORPH_TO_NEW_ENTITY(species .. age .. gender .. old .. super, false, 0, false, 1)
+
+end
+
+--- Get if an animal is old
+--- @param animal animal
+--- @return bool
+function AnimalService.getOld (animal)
+    return animal:BFG_GET_ATTR_BOOLEAN("b_Old")
+end
+
+--- Get if an animal is old as a string
+--- @param animal animal
+--- @return string
+function AnimalService.getOldString (animal)
+    local isOld = animal:BFG_GET_ATTR_BOOLEAN("b_Old")
+    if isOld then
+        return "_Old"
+    end
+    return ""
+end
+
+--- Set if an animal is old
+--- @param animal animal
+--- @param isOld bool
+function AnimalService.setOld (animal, isOld)
+    local species = animal:BFG_GET_ATTR_STRING("s_Species")
+    local gender = AnimalService.getGenderString(animal)
+    local super = AnimalService.getSuperString(animal)
+    local age = AnimalService.getAgeString(animal)
+    local old = ""
+    if isOld then
+        old = "_Old"
+    end
+
+    animal:BFG_ENTITY_MORPH_TO_NEW_ENTITY(species .. age .. gender .. old .. super, false, 0, false, 1)
 end
 
 ---- BATHROOM ----
@@ -144,9 +183,9 @@ end
 function AnimalService.getGenderString (animal)
     local isMale = animal:BFG_GET_ATTR_BOOLEAN("b_Male")
     if isMale then
-        return "M"
+        return "_M"
     end
-    return "F"
+    return "_F"
 end
 
 --- Set animal gender
@@ -156,8 +195,12 @@ function AnimalService.setGender (animal, gender)
     local species = animal:BFG_GET_ATTR_STRING("s_Species")
     local age = AnimalService.getAgeString(animal)
     local super = AnimalService.getSuperString(animal)
+    local old = ""
+    if (age == "_Adult") then
+        old = AnimalService.getOldString(animal)
+    end
 
-    animal:BFG_ENTITY_MORPH_TO_NEW_ENTITY(species .. "_" .. age .. "_" .. gender .. super, false, 0, false, 1)
+    animal:BFG_ENTITY_MORPH_TO_NEW_ENTITY(species .. age .. gender .. old .. super, false, 0, false, 1)
 end
 
 ---- HEALTH ----
@@ -354,8 +397,12 @@ function AnimalService.setSpecies (animal, species)
     local gender = AnimalService.getGenderString(animal)
     local age = AnimalService.getAgeString(animal)
     local super = AnimalService.getSuperString(animal)
+    local old = ""
+    if (age == "_Adult") then
+        old = AnimalService.getOldString(animal)
+    end
 
-    animal:BFG_ENTITY_MORPH_TO_NEW_ENTITY(species .. "_" .. age .. "_" .. gender .. super, false, 0, false, 1)
+    animal:BFG_ENTITY_MORPH_TO_NEW_ENTITY(species .. age .. gender .. old .. super, false, 0, false, 1)
 end
 
 ---- STIMULATION ----
@@ -401,12 +448,18 @@ function AnimalService.setSuper (animal, isSuper)
     local species = animal:BFG_GET_ATTR_STRING("s_Species")
     local age = AnimalService.getAgeString(animal)
     local gender = AnimalService.getGenderString(animal)
-
-    if isSuper then
-        animal:BFG_ENTITY_MORPH_TO_NEW_ENTITY(species .. "_" .. age .. "_" .. gender .. "_Super", false, 0, false, 1)
-    else
-        animal:BFG_ENTITY_MORPH_TO_NEW_ENTITY(species .. "_" .. age .. "_" .. gender, false, 0, false, 1)
+    local old = ""
+    if (age == "_Adult") then
+        old = AnimalService.getOldString(animal)
     end
+
+    local super = ""
+    if isSuper then
+        super = "_Super"
+    end
+
+    animal:BFG_ENTITY_MORPH_TO_NEW_ENTITY(species .. age .. gender .. old .. super, false, 0, false, 1)
+
 end
 
 ---- THIRST ----

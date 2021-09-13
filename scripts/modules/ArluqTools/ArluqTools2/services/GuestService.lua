@@ -12,6 +12,39 @@ include "scenario/scripts/ui.lua"
 --- Service for modifiying guests
 GuestService = {}
 
+
+---- AMUSEMENT ----
+
+--- Get guest amusement stat
+--- @param guest guest
+--- @return float
+function GuestService.getAmusement (guest)
+    return guest:BFG_GET_ATTR_FLOAT("amusement")
+end
+
+--- Set guest amusement stat
+--- @param guest guest
+--- @param amusement float
+function GuestService.setAmusement (guest, amusement)
+    setNeed(guest, "amusement", amusement)
+end
+
+---- BATHROOM ----
+
+--- Get guest bathroom stat
+--- @param guest guest
+--- @return float
+function GuestService.getBathroom (guest)
+    return guest:BFG_GET_ATTR_FLOAT("bathroom")
+end
+
+--- Set guest bathroom stat
+--- @param guest guest
+--- @param bathroom float
+function GuestService.setBathroom (guest, bathroom)
+    setNeed(guest, "bathroom", bathroom)
+end
+
 ---- DELETE ----
 
 --- Delete guest
@@ -32,6 +65,22 @@ function GuestService.setFavorite (guest, species)
     guest:sendMessage("ZTAI_SET_FAVORITE_ANIMAL", species)
 end
 
+---- DESSERT ----
+
+--- Get guest dessert stat
+--- @param guest guest
+--- @return float
+function GuestService.getDessert (guest)
+    return guest:BFG_GET_ATTR_FLOAT("dessert")
+end
+
+--- Set guest dessert stat
+--- @param guest guest
+--- @param dessert float
+function GuestService.setDessert (guest, dessert)
+    setNeed(guest, "dessert", dessert)
+end
+
 ---- GENDER ----
 
 --- Get guest gender, returns true if male, false if female
@@ -50,6 +99,38 @@ function GuestService.getGenderString (guest)
         return "M"
     end
     return "F"
+end
+
+---- GIFT ----
+
+--- Get guest gift stat
+--- @param guest guest
+--- @return float
+function GuestService.getGift (guest)
+    return guest:BFG_GET_ATTR_FLOAT("gift")
+end
+
+--- Set guest gift stat
+--- @param guest guest
+--- @param gift float
+function GuestService.setGift (guest, gift)
+    setNeed(guest, "gift", gift)
+end
+
+---- HUNGER ----
+
+--- Get guest hunger
+--- @param guest guest
+--- @return float
+function GuestService.getHunger (guest)
+    return guest:BFG_GET_ATTR_FLOAT("hunger")
+end
+
+--- Set guest hunger
+--- @param guest guest
+--- @param hunger float
+function GuestService.setHunger (guest, hunger)
+    setNeed(guest, "hunger", hunger)
 end
 
 ---- VARIANTS ----
@@ -118,6 +199,38 @@ function GuestService.setName (guest, name)
     guest:BFG_SET_ATTR_STRING("s_name", name)
 end
 
+---- REST ----
+
+--- Get guest rest stat
+--- @param guest guest
+--- @return float
+function GuestService.getRest (guest)
+    return guest:BFG_GET_ATTR_FLOAT("rest")
+end
+
+--- Set guest rest stat
+--- @param guest guest
+--- @param rest float
+function GuestService.setRest (guest, rest)
+    setNeed(guest, "rest", rest)
+end
+
+---- SOCIAL ----
+
+--- Get guest social stat
+--- @param guest guest
+--- @return float
+function GuestService.getSocial (guest)
+    return guest:BFG_GET_ATTR_FLOAT("social")
+end
+
+--- Set guest social stat
+--- @param guest guest
+--- @param social float
+function GuestService.setSocial (guest, social)
+    setNeed(guest, "social", social)
+end
+
 ---- THIRST ----
 
 --- Get guest thirst
@@ -132,4 +245,20 @@ end
 --- @param thirst float
 function GuestService.setThirst (guest, thirst)
     setNeed(guest, "thirst", thirst)
+end
+
+---- VIEWANIMALS ----
+
+--- Get guest viewanimals stat
+--- @param guest guest
+--- @return float
+function GuestService.getViewAnimals (guest)
+    return guest:BFG_GET_ATTR_FLOAT("viewanimals")
+end
+
+--- Set guest viewanimals stat
+--- @param guest guest
+--- @param viewanimals float
+function GuestService.setViewAnimals (guest, viewanimals)
+    setNeed(guest, "viewanimals", viewanimals)
 end

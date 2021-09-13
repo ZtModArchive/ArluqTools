@@ -6,3 +6,7 @@ include "scenario/scripts/ui.lua"
 
 --- Service for Radical Remake.
 RRService = {}
+
+RRService.AnimalGetAge() {
+    
+}

@@ -9,6 +9,7 @@ include "scenario/scripts/entity.lua"
 include "scenario/scripts/misc.lua"
 include "scenario/scripts/token.lua"
 include "scenario/scripts/ui.lua"
+include "scripts/canreproduce.lua"
 
 --- Service for modifiying animals
 AnimalService = {}
@@ -115,6 +116,22 @@ function AnimalService.setBathroom (animal, bathroom)
     setNeed(animal, "bathroom", bathroom)
 end
 
+---- BREATH ----
+
+--- Get animal breath
+--- @param animal animal
+--- @return float
+function AnimalService.getBreath (animal)
+    return animal:BFG_GET_ATTR_FLOAT("breath")
+end
+
+--- Set animal breath
+--- @param animal animal
+--- @param breath float
+function AnimalService.setBreath (animal, breath)
+    setNeed(animal, "breath", breath)
+end
+
 ---- CRATE ----
 
 --- Set animal crated status
@@ -126,6 +143,20 @@ function AnimalService.setCrated (animal, isCrated)
     else
         uncrateEntity(animal)
     end
+end
+
+--- Get whether or not an animal can be crated
+--- @param animal animal
+--- @return bool
+function AnimalService.getCrateOption (animal)
+    return animal:BFG_GET_ATTR_BOOLEAN("b_showCrate")
+end
+
+--- Set whether or not an animal can be crated
+--- @param animal animal
+--- @param canBeCrated bool
+function AnimalService.setCrateOption (animal, canBeCrated)
+    animal:BFG_SET_ATTR_BOOLEAN("b_showCrate", canBeCrated)
 end
 
 ---- DELETE ----
@@ -166,6 +197,18 @@ end
 --- @param exercise float
 function AnimalService.setExercise (animal, exercise)
     setNeed(animal, "exercise", exercise)
+end
+
+---- FAMILY ----
+
+--- Get an animal's children
+--- @param animal animal
+--- @return animalList
+function AnimalService.getChildren (animal)
+    local childrenList = animal:sendMessage("BFAI_GET_RELATED_ENTITIES", "child")
+    if childrenList ~= nil and type(childrenList) == "table" then
+        return childrenList
+    end
 end
 
 ---- GENDER ----
@@ -294,6 +337,13 @@ function AnimalService.setPregnant (animal, isPregnant)
     end
 end
 
+--- Get if animal has pregnancy token
+--- @param animal animal
+--- @return bool
+function AnimalService.getPregnancyToken (animal)
+    return checkforpregnant(animal)
+end
+
 ---- PRIVACY ----
 
 --- Get animal privacy
@@ -340,6 +390,29 @@ end
 --- @param canBeReleased bool
 function AnimalService.setReleaseOption (animal, canBeReleased)
     animal:BFG_SET_ATTR_BOOLEAN("b_showRelease", canBeReleased)
+end
+
+---- REPRODUCTION ----
+
+--- Get animal reproduction stat
+--- @param animal animal
+--- @return float
+function AnimalService.getReproduction (animal)
+    return animal:BFG_GET_ATTR_FLOAT("reproduction")
+end
+
+--- Set animal reproduction stat
+--- @param animal animal
+--- @param reproduction float
+function AnimalService.setReproduction (animal, reproduction)
+    setNeed(animal, "reproduction", reproduction)
+end
+
+--- Get if animal can reproduce
+--- @param animal animal
+--- @return bool
+function AnimalService.getCanReproduce (animal)
+    return canreproduce(animal)
 end
 
 ---- REST ----

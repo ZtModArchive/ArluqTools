@@ -1,0 +1,127 @@
+<ZTUITimedEvents name="credits" xPack="arluq">
+    <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len" />
+    <UIState active="normal" visible="normal" />
+    <UIAspect string="">
+        <default />
+    </UIAspect>
+    <children>
+        <UILayout name="arluqbackground">
+            <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len" />
+            <children>
+                <UIStatic name="ArluqTools Background 1">
+                    <UIRegion x="0" y="0" w="512" h="512" xalign="min" yalign="min" walign="len" halign="len" />
+                    <UIAspect>
+                        <default>
+                            <BFColor r="255" g="255" b="255" a="255" />
+                        </default>
+                    </UIAspect>
+                </UIStatic>
+            </children>
+        </UILayout>
+
+        <UILayout name="arluqlogo">
+            <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="len" halign="len" />
+            <UIState active="normal" visible="hidden" />
+            <UIShowHideAnim time=".5" bob="1.3">
+                <start x="0" y="1024" w="1024" h="768" />
+                <end x="0" y="0" w="1024" h="768" />
+            </UIShowHideAnim>
+            <children>
+                <UIStatic rows="-1">
+                    <UIRegion x="256" y="80" w="512" h="512" xalign="min" yalign="min" walign="len" halign="len" />
+                    <UIState active="normal" visible="normal" />
+                    <UIAspect>
+                        <default image="ui\credits\logos\logo_arluq_two.dds" />
+                    </UIAspect>
+                </UIStatic>
+                <UIText autosize="true">
+                    <UIRegion x="0" y="580" w="0" h="0" xalign="min" yalign="min" walign="max" halign="len" />
+                    <UIState active="normal" visible="normal" />
+                    <UIAspect locid="credits:devteam">
+                        <default>
+                            <BFFont align="center" />
+                        </default>
+                    </UIAspect>
+                    <text format="credits:xp2headinglarge" />
+                </UIText>
+            </children>
+        </UILayout>
+
+        <UILayout name="arluqdev">
+            <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="len" halign="len" />
+            <UIState active="normal" visible="hidden" />
+            <UIShowHideAnim time=".5" bob="1.3">
+                <start x="0" y="1024" w="1024" h="768" />
+                <end x="0" y="0" w="1024" h="768" />
+            </UIShowHideAnim>
+            <children>
+                <UILayout rows="-1">
+                    <UIRegion x="0" y="25" w="1024" h="0" xalign="min" yalign="min" walign="len" halign="max" />
+                    <UIState active="normal" visible="normal" />
+                    <UIAspect>
+                        <default sound="" />
+                    </UIAspect>
+                    <children>
+                        <UIListBox rows="-1">
+                            <UIRegion x="175" y="75" w="600" h="0" xalign="min" yalign="min" walign="len" halign="max" />
+                            <UIState active="normal" visible="normal" />
+                            <UIAspect>
+                                <default sound="" />
+                            </UIAspect>
+                            <children>
+
+                                <UIText autosize="true">
+                                    <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="len" />
+                                    <UIState active="normal" visible="normal" />
+                                    <UIAspect locid="devteamnames:apodemus">
+                                        <default>
+                                            <BFFont align="center" />
+                                        </default>
+                                    </UIAspect>
+                                    <text format="credits:xp2headingname" />
+                                </UIText>
+                                
+                            </children>
+                        </UIListBox>
+                    </children>
+                </UILayout>
+            </children>
+        </UILayout>
+        <UIText name="Exit_Credits_Message" autosize="true">
+            <UIRegion x="0" y="-25" w="1024" h="25" xalign="min" yalign="max" walign="len" halign="len" />
+            <UIAspect locid="credits:back_message">
+                <default>
+                    <BFFont align="center" />
+                </default>
+            </UIAspect>
+            <UIShowHideAnim time=".5" bob="1.3">
+                <start x="0" y="0" w="1024" h="25" />
+                <end x="0" y="-25" w="1024" h="25" />
+            </UIShowHideAnim>
+            <text format="credits:xp2headingnamesmall" />
+        </UIText>
+    </children>
+    <timedEvents>
+        <event msg="UI_CHILD" data="UIChildData" name="railcam">
+            <child msg="UI_ACTIVATE_OFF" />
+        </event>
+        <event time="0" msg="UI_CHILD" data="UIChildData" name="Exit_Credits_Message">
+            <child msg="UI_SHOW" />
+        </event>
+        <event time="0" msg="UI_CHILD" data="UIChildData" name="arluqbackground">
+            <child msg="UI_SHOW" />
+        </event>
+        <event time="2.0" msg="UI_CHILD" data="UIChildData" name="arluqlogo">
+            <child msg="UI_SHOW" />
+        </event>
+        <event time="6.0" msg="UI_CHILD" data="UIChildData" name="arluqlogo">
+            <child msg="UI_HIDE" />
+        </event>
+        <event time="2.0" msg="UI_CHILD" data="UIChildData" name="arluqdev">
+            <child msg="UI_SHOW" />
+        </event>
+        <event time="6.0" msg="UI_CHILD" data="UIChildData" name="arluqdev">
+            <child msg="UI_HIDE" />
+        </event>
+    </timedEvents>
+</ZTUITimedEvents>

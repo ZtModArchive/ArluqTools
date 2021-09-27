@@ -1,10 +1,11 @@
 {
-  "ArchiveName": "ArluqTools",
+  "ArchiveName": "zzz-ArluqTools",
   "Z2f": true,
   "IncludeFolders": [
-    "scripts"
+    "scripts",
+    "ui"
   ],
   "ExcludeFolders": [
-    "scripts/modules"
+    "modules"
   ]
 }

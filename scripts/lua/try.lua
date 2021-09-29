@@ -1,3 +1,5 @@
+include "scripts/lua/logging.lua"
+
 --- Function for try-catching
 --- @param func function
 function try(func)
@@ -11,6 +13,8 @@ function try(func)
         do 
             displayZooMessageTextWithZoom(string.sub(exception, i, i+increment-1), 1, 30)
         end
+        -- Show exception in log output
+        log.error(exception)
     end
 end
 

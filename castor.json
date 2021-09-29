@@ -1,11 +1,37 @@
 {
   "ArchiveName": "zzz-ArluqTools",
+  "RepoName": "ZtModArchive/ArluqTools",
+  "Author": "Apodemus",
+  "Version": "v2.2",
+  "Type": "package",
+  "License": "MIT License",
+  "Description": "This is a lua library that is an abstraction  layer around ZT2's libraries.",
   "Z2f": true,
+  "ZT2loc": "C:\\Program Files (x86)\\Microsoft Games\\Zoo Tycoon 2",
   "IncludeFolders": [
+    "ai",
+    "awards",
+    "biomes",
+    "config",
+    "effects",
+    "entities",
+    "lang",
+    "locations",
+    "maps",
+    "materials",
+    "photochall",
+    "puzzles",
+    "scenario",
     "scripts",
-    "ui"
+    "shared",
+    "tourdata",
+    "ui",
+    "world",
+    "xpinfo"
   ],
   "ExcludeFolders": [
     "modules"
-  ]
+  ],
+  "Dependencies": [],
+  "DevDependencies": []
 }

@@ -167,6 +167,29 @@ function AnimalService.delete (animal)
     deleteEntity(animal)
 end
 
+---- DISEASE ----
+
+--- Get if animal has a disease
+--- @param animal animal
+--- @return bool
+function AnimalService.isDiseased (animal)
+    return animal:BFG_GET_ATTR_BOOLEAN("b_Disease")
+end
+
+
+--- Give animal a disease
+--- @param animal animal
+--- @param diseaseName string
+function AnimalService.giveDisease (animal, diseaseName)
+    local diseaseManager = queryObject("ZTDiseaseMgr")
+    local animalName = getName(animal)
+    local diseaseSeed = {
+        key = diseaseName,
+        val = animalName
+    }
+    diseaseManager:ZT_FORCE_DISEASE(diseaseSeed)
+end
+
 ---- ENVIROMENT ----
 
 --- Get animal enviroment suitability

@@ -1,9 +1,3 @@
---- @todo
--- suppressing rampage
--- get/set variations
--- get/set skin variations
--- get/set deletable
-
 -- Include Zoo Tycoon 2 libraries
 include "scenario/scripts/entity.lua"
 include "scenario/scripts/misc.lua"
@@ -98,6 +92,15 @@ function AnimalService.setOld (animal, isOld)
     end
 
     animal:BFG_ENTITY_MORPH_TO_NEW_ENTITY(species .. age .. gender .. old .. super, false, 0, false, 1)
+end
+
+---- ATTACK ----
+
+--- Get if animal is attacked
+--- @param animal animal
+--- @return bool
+function AnimalService.getAttacked (animal)
+    return animal:BFG_GET_ATTR_BOOLEAN("b_Attacked")
 end
 
 ---- BATHROOM ----
@@ -204,6 +207,15 @@ end
 --- @param enviroment float
 function AnimalService.setEnviroment (animal, enviroment)
     setNeed(animal, "enviroment", enviroment)
+end
+
+---- ESCAPE ----
+
+--- Get if animal is escaped
+--- @param animal animal
+--- @return bool
+function AnimalService.getEscaped (animal)
+    return animal:BFG_GET_ATTR_BOOLEAN("b_Escaped")
 end
 
 ---- EXERCISE ----

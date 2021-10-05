@@ -36,8 +36,8 @@ end
 
 --- Get zoo fame
 --- @return float
-function ZooService.giveCash  (cash)
-    return giveCash(cash)
+function ZooService.getZooFame   (cash)
+    return getZooFame(cash)
 end
 
 ---- FINANCE ----

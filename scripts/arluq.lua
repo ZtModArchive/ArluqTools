@@ -5,6 +5,7 @@ include "modules/ZtModArchive/ArluqTools/scripts/services/AnimalService.lua"
 include "modules/ZtModArchive/ArluqTools/scripts/services/CollectionService.lua"
 include "modules/ZtModArchive/ArluqTools/scripts/services/FenceService.lua"
 include "modules/ZtModArchive/ArluqTools/scripts/services/GuestService.lua"
+include "modules/ZtModArchive/ArluqTools/scripts/services/StaffService.lua"
 include "modules/ZtModArchive/ArluqTools/scripts/services/TimeService.lua"
 include "modules/ZtModArchive/ArluqTools/scripts/services/ZooService.lua"
 
@@ -19,5 +20,6 @@ aq.collection = CollectionService
 aq.animal = AnimalService
 aq.fence = FenceService
 aq.guest = GuestService
+aq.staff = StaffService
 aq.time = TimeService
 aq.zoo = ZooService

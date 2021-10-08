@@ -1,4 +1,4 @@
-include "scripts/lua/logging.lua"
+include "modules/ZtModArchive/ArluqTools/scripts/lua/logging.lua"
 
 --- Function for try-catching
 --- @param func function
@@ -15,6 +15,8 @@ function try(func)
         end
         -- Show exception in log output
         log.error(exception)
+    else
+        log.info(status)
     end
 end
 

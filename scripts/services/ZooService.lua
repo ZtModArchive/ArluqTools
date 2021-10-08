@@ -60,6 +60,6 @@ end
 
 --- Get zoo name
 --- @return string
-function ZooService.getZooName   ()
+function ZooService.getZooName ()
     return getZooName ()
 end

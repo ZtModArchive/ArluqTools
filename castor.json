@@ -2,7 +2,7 @@
   "ArchiveName": "zzz-ArluqTools",
   "RepoName": "ZtModArchive/ArluqTools",
   "Author": "Apodemus",
-  "Version": "v2.6",
+  "Version": "v2.7",
   "Type": "package",
   "License": "MIT License",
   "Description": "This is a lua library that is an abstraction  layer around ZT2's libraries.",
@@ -30,7 +30,8 @@
     "xpinfo"
   ],
   "ExcludeFolders": [
-    "modules"
+    "modules",
+    "tests"
   ],
   "Dependencies": [],
   "DevDependencies": []

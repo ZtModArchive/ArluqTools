@@ -1,0 +1,6 @@
+..............
+Ran 14 tests in 0.000 seconds, 14 successes, 0 failures
+OK
+Use of WrapFunctions() is no longer needed.
+Just prefix your test function names with "test" or "Test" and they
+will be picked up and run by LuaUnit.
